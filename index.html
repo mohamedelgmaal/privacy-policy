@@ -3,176 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سياسة حماية الطفل - دردشات الذهبي</title>
-
+    <title>سياسة حماية الأطفال</title>
     <style>
-        body {
-            font-family: "Cairo", Arial, sans-serif;
-            background: #f7f7f7;
-            padding: 25px;
-            line-height: 1.8;
-            color: #222;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
         .container {
             max-width: 900px;
-            margin: auto;
-            background: #fff;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .accordion-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            padding: 18px 20px;
+            background-color: #f8f9fb;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .accordion-header:hover {
+            background-color: #f0f2f7;
+        }
+
+        .accordion-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 15px;
+            font-size: 1.5em;
+            flex-shrink: 0;
+        }
+
+        .accordion-icon-1 { background-color: #e3f2fd; color: #2196f3; }
+        .accordion-icon-2 { background-color: #f3e5f5; color: #9c27b0; }
+        .accordion-icon-3 { background-color: #fff3e0; color: #ff9800; }
+        .accordion-icon-4 { background-color: #f1f8e9; color: #8bc34a; }
+        .accordion-icon-5 { background-color: #fce4ec; color: #e91e63; }
+        .accordion-icon-6 { background-color: #e0f2f1; color: #009688; }
+        .accordion-icon-7 { background-color: #fbe9e7; color: #ff5722; }
+        .accordion-icon-8 { background-color: #eceff1; color: #607d8b; }
+        .accordion-icon-9 { background-color: #f1f5fe; color: #3f51b5; }
+        .accordion-icon-10 { background-color: #fff8e1; color: #fbc02d; }
+
+        .accordion-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+            flex: 1;
+            text-align: right;
+        }
+
+        .accordion-toggle {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .accordion-item.active .accordion-toggle {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+            padding: 20px;
+        }
+
+        .accordion-text {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.8;
+            text-align: right;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.1);
-        }
-        h1, h2 {
-            color: #c49b00;
-        }
-        h1 {
+            border-radius: 10px;
+            margin-top: 40px;
             text-align: center;
         }
-        a {
-            color: #c49b00;
+
+        .contact-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
         }
 
-        /* Accordion Design */
-        .accordion .item {
-            background: #fff;
-            margin-bottom: 12px;
-            border-radius: 12px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-            overflow: hidden;
+        .contact-section p {
+            font-size: 1em;
+            margin-bottom: 20px;
+            opacity: 0.9;
         }
 
-        .accordion .title {
-            width: 100%;
-            padding: 18px;
-            background: none;
+        .contact-btn {
+            background-color: white;
+            color: #667eea;
             border: none;
-            text-align: right;
-            font-size: 18px;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 600;
             cursor: pointer;
-            color: #333;
-            font-weight: bold;
+            transition: all 0.3s ease;
         }
 
-        .accordion .content {
-            display: none;
-            padding: 15px 20px;
-            border-top: 1px solid #eee;
-            color: #555;
-            line-height: 1.8;
-            background: #fafafa;
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .accordion-header {
+                padding: 15px;
+            }
+
+            .accordion-title {
+                font-size: 1em;
+            }
+
+            .accordion-item.active .accordion-content {
+                max-height: 800px;
+            }
         }
     </style>
 </head>
-
 <body>
-<div class="container">
+    <div class="container">
+        <header>
+            <h1>سياسة حماية الأطفال</h1>
+            <p>التزامنا بضمان بيئة آمنة وصحية للأطفال</p>
+        </header>
 
-<h1>سياسة حماية الطفل – تطبيق دردشات الذهبي</h1>
-<p>نحن في <strong>دردشات الذهبي</strong> نهتم بحماية خصوصية المستخدمين، وخاصة القُصّر، ونوضح لك هنا كيفية جمع واستخدام وتأمين بياناتهم داخل التطبيق.</p>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-toggle">▼</div>
+                    <div class="accordion-title">الالتزام بحماية الأطفال</div>
+                    <div class="accordion-icon accordion-icon-1">🛡️</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        نحن ملتزمون بتوفير بيئة آمنة وصحية لجميع الأطفال. تشمل سياستنا حماية شاملة من جميع أشكال الاستغلال والإساءة، وضمان أن يكون لكل طفل الحق في النمو والتطور بشكل سليم.
+                    </div>
+                </div>
+            </div>
 
-<br><br>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-toggle">▼</div>
+                    <div class="accordion-title">الأعمال المسيء بها</div>
+                    <div class="accordion-icon accordion-icon-2">⛔</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        نحظر بشدة جميع أشكال الإساءة الجسدية والنفسية والجنسية. كما نحظر أي محتوى يتعارض مع حقوق الطفل أو كرامته. أي انتهاك لهذه السياسة سيتم التعامل معه بحزم.
+                    </div>
+                </div>
+            </div>
 
-<!-- Accordion Starts -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-toggle">▼</div>
+                    <div class="accordion-title">المحتوى غير المناسب</div>
+                    <div class="accordion-icon accordion-icon-3">🚫</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        يُحظر نشر أي محتوى عنيف أو جنسي أو يتضمن مواد ضارة للأطفال. كما نحظر المحتوى الذي يشجع على السلوك المؤذي أو الإدمان. نسعى للحفاظ على بيئة إيجابية وآمنة.
+                    </div>
+                </div>
+            </div>
 
-<div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-toggle">▼</div>
+                    <div class="accordion-title">آلية التبليغ والحظر</div>
+                    <div class="accordion-icon accordion-icon-4">📞</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        لدينا نظام سهل وآمن للإبلاغ عن أي محتوى أو سلوك مسيء. يمكن للمستخدمين الإبلاغ عن المشاكل من خلال خاصية الإبلاغ المدمجة. سيتم التحقيق في جميع البلاغات بسرية واتخاذ الإجراءات المناسبة.
+                    </div>
+                </div>
+            </div>
 
-    <div class="item">
-        <button class="title">📁 1. المعلومات التي نجمعها</button>
-        <div class="content">
-            <ul>
-                <li><strong>معلومات الحساب:</strong> الاسم، العمر، الصورة الشخصية.</li>
-                <li><strong>معلومات الاستخدام:</strong> الرسائل، التفاعلات، النشاط داخل التطبيق.</li>
-                <li><strong>معلومات تقنية:</strong> نوع الجهاز، نظام التشغيل، عنوان الـ IP.</li>
-            </ul>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-toggle">▼</div>
+                    <div class="accordion-title">دور أولياء الأمور</div>
+                    <div class="accordion-icon accordion-icon-5">👨‍👩‍👧</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        يلعب الآباء والأمهات دوراً حيوياً في حماية أطفالهم. نشجع أولياء الأمور على المراقبة النشطة والتواصل المستمر مع أطفالهم بشأن سلامتهم على الإنترنت والأماكن العامة.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-toggle">▼</div>
+                    <div class="accordion-title">جمع بيانات الأطفال</div>
+                    <div class="accordion-icon accordion-icon-6">🔐</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        نتعامل مع بيانات الأطفال بأقصى درجات الحرص والسرية. لا نجمع بيانات شخصية من الأطفال دون موافقة صريحة من أولياء الأمور. جميع البيانات محمية بتقنيات التشفير الحديثة.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-toggle">▼</div>
+                    <div class="accordion-title">التدريب المستمر للفريق</div>
+                    <div class="accordion-icon accordion-icon-7">📚</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        يتلقى فريقنا تدريباً مستمراً حول كيفية التعامل مع قضايا حماية الأطفال. نضمن أن كل أعضاء الفريق لديهم الكفاءة والمهارات اللازمة للتعامل مع الحالات الحساسة بمسؤولية.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-toggle">▼</div>
+                    <div class="accordion-title">تقنيات الحماية</div>
+                    <div class="accordion-icon accordion-icon-8">🔒</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        نستخدم أحدث التقنيات لحماية الأطفال من التعرض للمحتوى الضار. تتضمن هذه التقنيات فلاتر ذكية وأنظمة كشف تلقائية وأدوات مراقبة فعالة.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-toggle">▼</div>
+                    <div class="accordion-title">تعليمات للأطفال</div>
+                    <div class="accordion-icon accordion-icon-9">👧</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        نعلم الأطفال كيفية الاستخدام الآمن والمسؤول. نشرح لهم أهمية عدم مشاركة المعلومات الشخصية وكيفية الإبلاغ عن أي سلوك مسيء أو محتوى غير مناسب.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-toggle">▼</div>
+                    <div class="accordion-title">التواصل معنا</div>
+                    <div class="accordion-icon accordion-icon-10">✉️</div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        إذا كان لديك أي استفسارات أو قلق بشأن سياسة حماية الأطفال لدينا، يرجى عدم التردد في التواصل معنا. فريقنا متاح للإجابة على جميع أسئلتك وتقديم المساعدة اللازمة.
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <div class="contact-section">
+            <h2>هل لديك أي استفسار؟</h2>
+            <p>نحن هنا لمساعدتك على فهم وتطبيق سياسة حماية الأطفال</p>
+            <button class="contact-btn">تواصل معنا</button>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 سياسة حماية الأطفال. جميع الحقوق محفوظة.</p>
+        </footer>
     </div>
 
-    <div class="item">
-        <button class="title">⚙ 2. كيفية استخدام المعلومات</button>
-        <div class="content">
-            <ul>
-                <li>تقديم وتحسين الخدمة.</li>
-                <li>مراقبة الأداء وكشف الأنشطة المخالفة.</li>
-                <li>حماية المستخدمين ومنع إساءة الاستخدام.</li>
-                <li>تنفيذ شروط الاستخدام.</li>
-            </ul>
-        </div>
-    </div>
+    <script>
+        const accordionItems = document.querySelectorAll('.accordion-item');
 
-    <div class="item">
-        <button class="title">🔗 3. مشاركة المعلومات</button>
-        <div class="content">
-            <p>لا نقوم ببيع أو مشاركة بيانات المستخدمين مع أي جهات إعلانية.</p>
-            <p>قد تتم مشاركة المعلومات فقط في الحالات التالية:</p>
-            <ul>
-                <li>إذا تطلب القانون ذلك.</li>
-                <li>لحماية المستخدمين من المخاطر أو الانتهاكات.</li>
-                <li>مع جهات تقنية موثوقة لضمان عمل التطبيق.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="item">
-        <button class="title">🛡 4. حقوق المستخدم</button>
-        <div class="content">
-            <ul>
-                <li>تعديل معلومات الحساب.</li>
-                <li>طلب حذف الحساب نهائيًا.</li>
-                <li>التحكم في الإشعارات.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="item">
-        <button class="title">🍪 5. الكوكيز</button>
-        <div class="content">
-            <p>قد نستخدم ملفات تعريف الارتباط لتحسين تجربة المستخدم داخل التطبيق.</p>
-        </div>
-    </div>
-
-    <div class="item">
-        <button class="title">👶 6. خصوصية الأطفال</button>
-        <div class="content">
-            <p>التطبيق غير مخصص للأطفال تحت سن 18 سنة.</p>
-            <p>أي حساب يثبت أنه لطفل يتم حذفه فورًا للحفاظ على الأمان.</p>
-        </div>
-    </div>
-
-    <div class="item">
-        <button class="title">📝 7. التعديلات على السياسة</button>
-        <div class="content">
-            قد نقوم بتحديث هذه السياسة، وسيتم إعلامك داخل التطبيق عند حدوث أي تغيير مهم.
-        </div>
-    </div>
-
-    <div class="item">
-        <button class="title">📨 8. التواصل معنا</button>
-        <div class="content">
-            <p>للاستفسار حول سياسة حماية الطفل أو الخصوصية، يمكنك التواصل عبر البريد التالي:</p>
-            <p><strong>mydw35539@gmail.com</strong></p>
-        </div>
-    </div>
-
-</div>
-
-<!-- Accordion Ends -->
-
-</div>
-
-<!-- JS -->
-<script>
-document.querySelectorAll(".accordion .title").forEach(btn => {
-    btn.addEventListener("click", () => {
-        let content = btn.nextElementSibling;
-
-        document.querySelectorAll(".accordion .content").forEach(c => {
-            if (c !== content) c.style.display = "none";
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            
+            header.addEventListener('click', () => {
+                // إغلاق جميع العناصر الأخرى
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // فتح/إغلاق العنصر الحالي
+                item.classList.toggle('active');
+            });
         });
 
-        content.style.display = 
-            content.style.display === "block" ? "none" : "block";
-    });
-});
-</script>
-
+        // إضافة تأثير عند الضغط على زر التواصل
+        const contactBtn = document.querySelector('.contact-btn');
+        contactBtn.addEventListener('click', () => {
+            alert('شكراً لاهتمامك! سيتم تحويلك إلى صفحة التواصل.');
+        });
+    </script>
 </body>
 </html>
